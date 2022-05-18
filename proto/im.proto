@@ -1,0 +1,170 @@
+syntax = "proto3";
+
+package im;
+
+enum IM_HEADER {
+
+    FIRSTER           = 0; // 第一个值得是0？
+    // 通信协议
+    C_S_PING          = 0x10000001; // PING协议
+    S_C_PING          = 0x10000002; // PING协议
+    S_C_ERROR         = 0x10400404; // 错误信息
+    C_S_INFOR         = 0x10200199; // 通知消息
+    S_C_INFOR         = 0x10200200; // 消息协议
+
+    //登录
+    S_C_USER_LOGINED  = 0x00100002; // 登陆结束返回
+
+    // 发送消息
+    C_S_SEND         = 0x10100001; // 客户端发送消息
+    S_C_SEND         = 0x10200001; // 服务器转发消息
+    S_C_SEND_INFO    = 0X10200002; // 消息发送反馈
+
+    S_C_ONLINE       = 0x10200101; // 发送在线用户
+    S_C_ADD_ONLINE   = 0x10200102; // 某一个好友上线了
+    S_C_SIGN_OUT     = 0x10200103; // 某一个好友下线了
+    S_C_OFFLINE_MESSAGE = 0x10200104; // 发送离线消息列表
+
+}
+
+
+
+// 发送PING协议
+message C_S_Ping {
+
+}
+
+// 回复PING协议
+message S_C_Ping{
+
+}
+message S_C_error {
+    sint32 code   = 1;  // 错误编号 参考status中的状态码
+    // 401 = 賬號已經被其他用戶頂替
+    // 402 = 賬號不允許被登錄
+    // 403 = 常規錯誤TOKEN過期，或者不存在
+    // 404 = 未定
+    // 405 = 未定
+    string msg    = 2;  // 错误信息
+}
+message C_S_infor {
+    string code = 1; // 通知编码 自定义
+    string msg = 2;  // 通知消息 自定义
+    string target_user_id = 3; // 通知的目标用户
+    string callback = 4; // 通知的回调， 自定义
+}
+
+message S_C_infor {
+    string  code = 1; // 信息编号
+    string  msg  = 2; // 信息文本
+    string  other = 3; // 其他附带信息
+    string  callback = 4; // 回调信息
+    string callback_type = 5; // 回调类型
+
+    // callback 回调信息
+    // callback =  X0_CC_02_XX_PP_INTEFACE  接口更新通知
+    // code 1 = 更新通讯录与会话
+    // code 2 = 更新好友请求
+    // code 3 = 更新群列表
+    // code 4 = 其他
+    // code 5 = 其他（未定）
+    // code 6 = 其他
+
+    // callback = X0_CC_02_XX_PP_NOTICE    群消息通知
+    //  code 1 = 通知加入群 other=otherInfo
+    //  code 2 = 通知离开群 other=otherInfo
+    //  code 3 = 群内公告消息
+    //  code 4 = 群主发生改变
+    //  code 5 = 管理员发生改变
+    //  code 6 = 群名称发生改变
+    //  code 7 = 用户名称或者头像发生改变
+    //  code 8 = 申请加入群聊
+    //  code 9 = 群组被解散的通知消息 => 会继续发送一个S_C_send_msg 消息，表示群组已经解散
+
+    // 发送INFO消息时 other 会返回一个json结构的
+    // {
+    //    "user_ids": '用户组ID',
+    //    "group_ids": '群组ID',
+    //    "title": '通知标题',
+    //    "content": '通知信息'，
+    //    "code": '通知编号',
+    //    "image_url": '图片',
+    // }
+    
+    
+}
+
+// 消息类型
+message msgContent {
+    bytes  content = 1;   // 消息内容 客户端自己解析
+    string image_url = 2; // 图片地址 客户端自己定义显示格式
+    string file_url = 3;  // 文件地址或者超链接地址, 客户端自己定义显示格式
+    string time = 4; // 发送时间
+    string timestamp = 5; // 发送时间戳
+}
+
+// 发送消息 客户端发往服务器
+message C_S_Send_msg {
+    string msg_id = 1;
+    sint32 user_id = 2; // 目标用户 -1 = 非用户
+    sint32 group_id = 3; // 目标群组 -1 = 非组
+    fixed32 type = 4; // 消息类型 1=文本消息 2=图片消息 3=文件消息 4>=语音消息后面编号可随意使用。都会发送content
+    string client_msg_id = 5; // 客户端消息ID
+    string session_id=6;
+    msgContent Message = 7; // 消息内容
+}
+
+// 发送消息 服务器发往客户端
+message S_C_Send_msg {
+    string msg_id =1;
+    string session_id=2;
+    string user_id = 3; // 发送者
+    fixed32 sender = 4; // 是否为发送人 0=不是 1=是
+    string target_group_id = 5; // 接收者组
+    string target_user_id = 6; // 接收者
+    fixed32 type = 7; // 消息类型 1=文本消息 2=图片消息 3=文件消息 4=语音消息
+    // 后面编号可随意使用。都会发送content
+    // 7=群组解散消息     当群被解散时，会给指定的群发送解散消息
+    // 8=群组广告推送消息 群组设置的定时发言推送
+    // 9=用户服务推送消息 用于用户自己设置的提醒进行服务推送
+
+    string client_msg_id = 8; // 客户端消息ID
+    fixed32 state = 9; // 1=时时消息 2=离线消息
+    msgContent Message = 10; // 消息内容
+}
+
+// 发送消息反馈信息
+message S_C_Send_Info {
+    string msg_id = 1;
+    sint32 state  = 2; // 状态 1=发送成功 -1=发送失败
+    string content = 3; // 失败原因
+    string client_msg_id = 4; // 客户端消息ID
+}
+
+message offlineMessage {
+        int32 user_id = 1; // 发送者
+        string session_id = 2;  // 会话ID
+        repeated S_C_Send_msg info = 3; //消息内容
+}
+
+// 发送离线消息
+message S_C_Offline_Message {
+    repeated offlineMessage offline = 1;
+}
+
+message online {
+    sint32 user_id = 1;
+    fixed32 type = 2; // 0=未上线 1=上线
+}
+message S_C_Online {
+    repeated online Online = 1; // 所有好友的状态
+}
+
+message S_C_Add_Online {
+    sint32 user_id = 1; //上线用户
+}
+
+message S_C_Sign_Out {
+    sint32 user_id = 1; //下线用户
+}
+

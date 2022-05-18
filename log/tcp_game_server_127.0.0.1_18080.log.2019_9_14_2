@@ -1,0 +1,234 @@
+2019-09-14 02:14:05+0800 [-] Log opened.
+2019-09-14 02:14:05+0800 [-] CommonServer starting on 18080
+2019-09-14 02:14:05+0800 [-] Starting factory <im.common.common_server.CommonServer object at 0x00000180402D3400>
+2019-09-14 02:17:49+0800 [im.common.common_server.CommonServer] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 552, in cbAccept
+	    self.handleAccept(rc, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 592, in handleAccept
+	    self._addressType('TCP', *rAddr))
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\protocol.py", line 140, in buildProtocol
+	    p = self.protocol()
+	  File "G:\imServer\server\ImServer\im\player\tcpHandlers.py", line 25, in __init__
+	    self.control = Control(self)
+	builtins.NameError: name 'Control' is not defined
+	
+2019-09-14 02:17:49+0800 [-] (TCP Port 18080 Closed)
+2019-09-14 02:17:49+0800 [-] Stopping factory <im.common.common_server.CommonServer object at 0x00000180402D3400>
+2019-09-14 02:20:19+0800 [-] Log opened.
+2019-09-14 02:20:20+0800 [-] CommonServer starting on 18080
+2019-09-14 02:20:20+0800 [-] Starting factory <im.common.common_server.CommonServer object at 0x00000175E51833C8>
+2019-09-14 02:20:24+0800 [im.common.common_server.CommonServer] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 552, in cbAccept
+	    self.handleAccept(rc, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 602, in handleAccept
+	    protocol.makeConnection(transport)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\protocol.py", line 514, in makeConnection
+	    self.connectionMade()
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\twisted\websocket.py", line 251, in connectionMade
+	    self._connectionMade()
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 2490, in _connectionMade
+	    WebSocketProtocol._connectionMade(self)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 976, in _connectionMade
+	    setattr(self, configAttr, getattr(self.factory, configAttr))
+	builtins.AttributeError: 'CommonServer' object has no attribute 'logOctets'
+	
+2019-09-14 02:20:24+0800 [-] (TCP Port 18080 Closed)
+2019-09-14 02:20:24+0800 [-] Stopping factory <im.common.common_server.CommonServer object at 0x00000175E51833C8>
+2019-09-14 02:20:24+0800 [TcpServerHandle,0,127.0.0.1] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 92, in _cbRead
+	    if self._handleRead(rc, data, evt):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 118, in _handleRead
+	    return self._dispatchData()
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 75, in _dispatchData
+	    self.dataReceived(self._readBuffers[full_buffers][0:remainder])
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 76, in dataReceived
+	    self.protocol.dataReceived(rbuffer)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\twisted\websocket.py", line 291, in dataReceived
+	    self._dataReceived(data)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 1200, in _dataReceived
+	    if self.state == WebSocketProtocol.STATE_OPEN:
+	builtins.AttributeError: 'TcpServerHandle' object has no attribute 'state'
+	
+2019-09-14 02:20:24+0800 [TcpServerHandle,0,127.0.0.1] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 191, in _cbWrite
+	    if self._handleWrite(rc, numBytesWritten, evt):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 225, in _handleWrite
+	    self.connectionLost(failure.Failure(main.CONNECTION_DONE))
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 131, in connectionLost
+	    protocol.connectionLost(reason)
+	  File "G:\imServer\server\ImServer\im\common\peer.py", line 74, in connectionLost
+	    print("[%s] connectLost" % self.client_ip)
+	builtins.AttributeError: 'TcpServerHandle' object has no attribute 'client_ip'
+	
+2019-09-14 02:35:52+0800 [-] Log opened.
+2019-09-14 02:35:52+0800 [-] CommonServer starting on 18080
+2019-09-14 02:35:52+0800 [-] Starting factory <im.common.common_server.CommonServer object at 0x000001C32C9D0BA8>
+2019-09-14 02:35:55+0800 [im.common.common_server.CommonServer] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 552, in cbAccept
+	    self.handleAccept(rc, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 602, in handleAccept
+	    protocol.makeConnection(transport)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\protocol.py", line 514, in makeConnection
+	    self.connectionMade()
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\twisted\websocket.py", line 251, in connectionMade
+	    self._connectionMade()
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 2490, in _connectionMade
+	    WebSocketProtocol._connectionMade(self)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 976, in _connectionMade
+	    setattr(self, configAttr, getattr(self.factory, configAttr))
+	builtins.AttributeError: 'CommonServer' object has no attribute 'logOctets'
+	
+2019-09-14 02:35:55+0800 [-] (TCP Port 18080 Closed)
+2019-09-14 02:35:55+0800 [-] Stopping factory <im.common.common_server.CommonServer object at 0x000001C32C9D0BA8>
+2019-09-14 02:35:55+0800 [TcpServerHandle,0,127.0.0.1] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 92, in _cbRead
+	    if self._handleRead(rc, data, evt):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 118, in _handleRead
+	    return self._dispatchData()
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 75, in _dispatchData
+	    self.dataReceived(self._readBuffers[full_buffers][0:remainder])
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 76, in dataReceived
+	    self.protocol.dataReceived(rbuffer)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\twisted\websocket.py", line 291, in dataReceived
+	    self._dataReceived(data)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 1200, in _dataReceived
+	    if self.state == WebSocketProtocol.STATE_OPEN:
+	builtins.AttributeError: 'TcpServerHandle' object has no attribute 'state'
+	
+2019-09-14 02:35:55+0800 [-] [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly: Connection done.
+2019-09-14 02:35:55+0800 [-] ], 200, 123
+2019-09-14 02:35:55+0800 [-] client[None] disconnected error:no found descTxt
+2019-09-14 02:36:59+0800 [-] Log opened.
+2019-09-14 02:36:59+0800 [-] CommonServer starting on 18080
+2019-09-14 02:36:59+0800 [-] Starting factory <im.common.common_server.CommonServer object at 0x0000018765E9DE48>
+2019-09-14 02:37:00+0800 [im.common.common_server.CommonServer] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 552, in cbAccept
+	    self.handleAccept(rc, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 602, in handleAccept
+	    protocol.makeConnection(transport)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\protocol.py", line 514, in makeConnection
+	    self.connectionMade()
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\twisted\websocket.py", line 251, in connectionMade
+	    self._connectionMade()
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 2490, in _connectionMade
+	    WebSocketProtocol._connectionMade(self)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 976, in _connectionMade
+	    setattr(self, configAttr, getattr(self.factory, configAttr))
+	builtins.AttributeError: 'CommonServer' object has no attribute 'logOctets'
+	
+2019-09-14 02:37:00+0800 [-] (TCP Port 18080 Closed)
+2019-09-14 02:37:00+0800 [-] Stopping factory <im.common.common_server.CommonServer object at 0x0000018765E9DE48>
+2019-09-14 02:37:00+0800 [TcpServerHandle,0,127.0.0.1] Unhandled Error
+	Traceback (most recent call last):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 103, in callWithLogger
+	    return callWithContext({"system": lp}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\log.py", line 86, in callWithContext
+	    return context.call({ILogContext: newCtx}, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 122, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\python\context.py", line 85, in callWithContext
+	    return func(*args,**kw)
+	--- <exception caught here> ---
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\reactor.py", line 119, in _callEventCallback
+	    evt.callback(rc, numBytes, evt)
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 92, in _cbRead
+	    if self._handleRead(rc, data, evt):
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 118, in _handleRead
+	    return self._dispatchData()
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\abstract.py", line 75, in _dispatchData
+	    self.dataReceived(self._readBuffers[full_buffers][0:remainder])
+	  File "E:\Program Files\Python37\lib\site-packages\twisted\internet\iocpreactor\tcp.py", line 76, in dataReceived
+	    self.protocol.dataReceived(rbuffer)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\twisted\websocket.py", line 291, in dataReceived
+	    self._dataReceived(data)
+	  File "E:\Program Files\Python37\lib\site-packages\autobahn\websocket\protocol.py", line 1200, in _dataReceived
+	    if self.state == WebSocketProtocol.STATE_OPEN:
+	builtins.AttributeError: 'TcpServerHandle' object has no attribute 'state'
+	
+2019-09-14 02:37:00+0800 [-] [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly: Connection done.
+2019-09-14 02:37:00+0800 [-] ], 200, 123
+2019-09-14 02:37:00+0800 [-] client[None] disconnected error:no found descTxt
